@@ -1,6 +1,6 @@
 {
   "name": "rick-morty",
-  "homepage": "http://elizabeth-honch.github.io/rick-morty",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
