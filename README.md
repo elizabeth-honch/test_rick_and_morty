@@ -2,14 +2,13 @@
 
 [DEMOLINK](https://elizabeth-honch.github.io/test_rick_and_morty/)
 
-## Available Scripts
+## Local Deployment
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Dependencies
+ - Node v12.16.3 and higher
+ - NPM v6.14.4 and higher
+ 
+2. Installing
+ - Fork and clone this repository
+ - Run npm install in your terminal
+ - Run npm start
