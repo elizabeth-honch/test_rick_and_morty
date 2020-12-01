@@ -1,0 +1,41 @@
+.table__name::after {
+  content: '↓';
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.table__name:hover {
+  cursor: pointer;
+}
+
+.table__name:hover:after {
+  content: '↑';
+}
+
+.table__type::after {
+  content: '↓';
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.table__type:hover {
+  cursor: pointer;
+}
+
+.table__type:hover:after {
+  content: '↑';
+}
+
+.table__dimension::after {
+  content: '↓';
+  padding-left: 15px;
+  font-size: 18px;
+}
+
+.table__dimension:hover {
+  cursor: pointer;
+}
+
+.table__dimension:hover:after {
+  content: '↑';
+}

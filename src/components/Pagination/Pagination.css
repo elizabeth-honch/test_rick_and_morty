@@ -1,0 +1,13 @@
+.pagination {
+  /* width: 25%; */
+  padding: 40px 0;
+
+  /* margin: 0 auto; */
+}
+.pagination__list {
+  display: flex;
+  margin: 0 auto;
+}
+.pagination__item {
+  list-style-type: none;
+}

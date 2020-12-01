@@ -1,0 +1,21 @@
+.watch__list {
+  list-style-type: none;
+}
+.watch__item {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  border:2px dashed #ccc;
+}
+.watch__name {
+  position: relative;
+  left: 40px;
+  top: -30px;
+}
+
+.checked {
+  position: relative;
+  left: 40px;
+  top: -30px;
+  color: green;
+}

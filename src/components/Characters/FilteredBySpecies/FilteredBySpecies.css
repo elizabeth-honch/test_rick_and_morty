@@ -1,0 +1,8 @@
+.species {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.species__title {
+    display: inline;
+  }

@@ -1,0 +1,16 @@
+.characters__card {
+  display: flex;
+  flex-wrap: wrap;
+  /* border:1px solid red; */
+}
+
+.card {
+  width:305px;
+  border:2px dashed #ccc;
+  margin: 20px;
+  list-style-type: none;
+}
+
+.card:hover {
+  cursor: pointer;
+}
