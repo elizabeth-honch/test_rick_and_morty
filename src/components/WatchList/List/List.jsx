@@ -19,7 +19,7 @@ export const List = ({ list, removeItem, handleChange }) => (
               color="primary"
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
-            <p key={item.title}>
+            <p className={`watch__name ${item.checked ? 'checked' : ''}`}>
               {item.title}
             </p>
           </label>

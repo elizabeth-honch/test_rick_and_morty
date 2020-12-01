@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
 export const WatchList = () => {
   const classes = useStyles();
   const id = uuidv4();
-  console.log(id);
 
   const [addMovie, setAddMovie] = useState(false);
   const [list, setList] = useLocalStorage('data', []);
