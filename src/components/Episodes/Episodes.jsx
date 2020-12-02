@@ -21,6 +21,11 @@ export const Episodes = ({ episodes, paginate }) => {
 };
 
 Episodes.propTypes = {
-  episodes: PropTypes.arrayOf().isRequired,
-  paginate: PropTypes.func.isRequired,
+  episodes: PropTypes.arrayOf(Episodes),
+  paginate: PropTypes.func,
+};
+
+Episodes.defaultProps = {
+  episodes: undefined,
+  paginate: undefined,
 };

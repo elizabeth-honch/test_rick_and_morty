@@ -54,10 +54,12 @@ export const Characters = ({ characters }) => {
             role="button"
             onClick={() => handleOpen(character)}
           >
-            <h3>{`Name - ${character.name}`}</h3>
-            <p>{`Species - ${character.species}`}</p>
-            <p>{`Status - ${character.status}`}</p>
-            <p>{`Gender - ${character.gender}`}</p>
+            <div className="card__info">
+              <h3>{`Name - ${character.name}`}</h3>
+              <p>{`Species - ${character.species}`}</p>
+              <p>{`Status - ${character.status}`}</p>
+              <p>{`Gender - ${character.gender}`}</p>
+            </div>
             <img src={`${character.image}`} alt="character" />
         </li>
         ))
@@ -65,26 +67,24 @@ export const Characters = ({ characters }) => {
       {
         showDetail
         ? (
-          <div>
-            <Modal
-              open={showDetail}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-            >
-              <div className={showCard.popup} style={popupStyle}>
-                <h2>{`Name - ${currentCharacter.name}`}</h2>
-                <p>{`Species - ${currentCharacter.species}`}</p>
-                <p>{`Status - ${currentCharacter.status}`}</p>
-                <p>{`Gender - ${currentCharacter.gender}`}</p>
-                <p>{`Location name - ${currentCharacter.location.name}`}</p>
-                <p>{`Location url - ${currentCharacter.location.url}`}</p>
-                <p>{`Origin name - ${currentCharacter.origin.name}`}</p>
-                <p>{`Origin url - ${currentCharacter.origin.url}`}</p>
-                <img src={`${currentCharacter.image}`} alt="character" />
-              </div>
-            </Modal>
-          </div>
+          <Modal
+            open={showDetail}
+            onClose={handleClose}
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+          >
+            <div className={showCard.popup} style={popupStyle}>
+              <h2>{`Name - ${currentCharacter.name}`}</h2>
+              <p>{`Species - ${currentCharacter.species}`}</p>
+              <p>{`Status - ${currentCharacter.status}`}</p>
+              <p>{`Gender - ${currentCharacter.gender}`}</p>
+              <p>{`Location name - ${currentCharacter.location.name}`}</p>
+              <p>{`Location url - ${currentCharacter.location.url}`}</p>
+              <p>{`Origin name - ${currentCharacter.origin.name}`}</p>
+              <p>{`Origin url - ${currentCharacter.origin.url}`}</p>
+              <img src={`${currentCharacter.image}`} alt="character" />
+            </div>
+          </Modal>
         )
         : ''
       }

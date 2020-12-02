@@ -19,6 +19,11 @@ export const Locations = ({ locations, paginate }) => {
 };
 
 Locations.propTypes = {
-  locations: PropTypes.arrayOf().isRequired,
-  paginate: PropTypes.func.isRequired,
+  locations: PropTypes.arrayOf(Locations),
+  paginate: PropTypes.func,
+};
+
+Locations.defaultProps = {
+  locations: undefined,
+  paginate: undefined,
 };

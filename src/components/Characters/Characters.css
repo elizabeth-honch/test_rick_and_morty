@@ -5,9 +5,14 @@
 
 .card {
   width:305px;
-  border:2px dashed #ccc;
   margin: 20px;
+  border:2px dashed #ccc;
   list-style-type: none;
+}
+
+.card__info {
+  padding-left: 20px;
+  margin-bottom: 20px;
 }
 
 .card:hover {

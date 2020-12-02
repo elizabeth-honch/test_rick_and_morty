@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Navigation.css';
 
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+
 import { FilteredBySpecies } from '../Characters/FilteredBySpecies/FilteredBySpecies';
 import { FilteredByStatus } from '../Characters/FilteredByStatus/FilteredByStatus';
 import { FilteredByGender } from '../Characters/FilteredByGender/FilteredByGender';
@@ -49,11 +54,30 @@ import {
   UNKNOWN_GENDER,
 } from '../../variables';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(1),
+  },
+  title: {
+    marginRight: theme.spacing(2),
+    flexGrow: 1,
+    '&:hover': {
+      cursor: 'pointer',
+      color: '#cfd8dc',
+    },
+  },
+  selected: {
+    color: '#cfd8dc',
+  },
+}));
+
 export const Navigation = () => {
+  const classes = useStyles();
+
   const [showCharacter, setShowCharacter] = useState(false);
   const [showEpisode, setShowEpisode] = useState(false);
   const [showLocation, setShowLocation] = useState(false);
-  const [showWatchList, setShowWatchList] = useState(false);
+  const [showWatchList, setShowWatchList] = useState(true);
 
   const [selectedSpecies, setSelectedSpecies] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
@@ -245,37 +269,24 @@ export const Navigation = () => {
 
   return (
     <>
-      <nav className="ui fluid four item menu">
-        <button
-          type="button"
-          onClick={listOfCharacters}
-          className="item"
-        >
-          Characters
-        </button>
-        <button
-          type="button"
-          onClick={tableEpisode}
-          className="item"
-        >
-          Episodes
-        </button>
-        <button
-          type="button"
-          onClick={tableLocation}
-          className="item"
-        >
-          Locations
-        </button>
-        <button
-          type="button"
-          onClick={watchList}
-          className="item"
-        >
-          My watch list
-        </button>
+      <nav className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" className={`${classes.title} ${showCharacter ? classes.selected : ''}`} onClick={listOfCharacters}>
+              Characters
+            </Typography>
+            <Typography variant="h6" className={`${classes.title} ${showEpisode ? classes.selected : ''}`} onClick={tableEpisode}>
+              Episodes
+            </Typography>
+            <Typography variant="h6" className={`${classes.title} ${showLocation ? classes.selected : ''}`} onClick={tableLocation}>
+              Locations
+            </Typography>
+            <Typography variant="h6" className={`${classes.title} ${showWatchList ? classes.selected : ''}`} onClick={watchList}>
+              My watch list
+            </Typography>
+          </Toolbar>
+        </AppBar>
       </nav>
-
       {
         showCharacter && (
           <div className="characters">

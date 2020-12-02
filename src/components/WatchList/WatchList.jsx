@@ -1,6 +1,3 @@
-/* eslint global-require: "error" */
-/* eslint no-shadow: "error" */
-/* eslint no-param-reassign: "error" */
 import React, { useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -22,9 +19,6 @@ const useStyles = makeStyles((theme) => ({
 
 export const WatchList = () => {
   const classes = useStyles();
-  const id = uuidv4();
-
-  const [addMovie, setAddMovie] = useState(false);
   const [list, setList] = useLocalStorage('data', []);
   const [nameEpisode, setNameEpisode] = useState('');
 
@@ -35,12 +29,11 @@ export const WatchList = () => {
   };
 
   const addItem = () => {
-    setAddMovie(true);
     if (nameEpisode !== '') {
       setList([
         ...list,
         {
-          id,
+          id: uuidv4(),
           title: nameEpisode,
           checked: false,
         }]);
@@ -52,25 +45,24 @@ export const WatchList = () => {
     setList(list.filter((movie) => movie !== item));
   };
 
-  // eslint-disable-next-line no-shadow
   const handleChange = (id) => {
-    setAddMovie(true);
-    // eslint-disable-next-line array-callback-return
-    list.map((item) => {
+    const newList = list.map((item) => {
       if (item.id === id) {
-        item.checked = true;
+        return {
+          ...item,
+          checked: !item.checked,
+        };
       }
+      return item;
     });
-    setList(list);
+    setList(newList);
   };
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField id="standard-basic" label="New Episode" value={nameEpisode} onChange={createList} />
       <Button variant="outlined" onClick={addItem}>Add</Button>
-      {
-        addMovie && (<List list={list} removeItem={removeItem} handleChange={handleChange} />)
-      }
+      <List list={list} removeItem={removeItem} handleChange={handleChange} />
     </form>
   );
 };

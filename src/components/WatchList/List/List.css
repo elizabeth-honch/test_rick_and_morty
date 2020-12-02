@@ -7,15 +7,8 @@
   justify-content: space-between;
   border:2px dashed #ccc;
 }
-.watch__name {
+.watch__text {
   position: relative;
   left: 40px;
   top: -30px;
-}
-
-.checked {
-  position: relative;
-  left: 40px;
-  top: -30px;
-  color: green;
 }
