@@ -82,7 +82,7 @@ export const Navigation = () => {
   const [selectedSpecies, setSelectedSpecies] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
   const [selectedGender, setSelectedGender] = useState('all');
-  const [currentPage, setCurrentPage] = useState(1);
+  const currentPage = 1;
 
   const characters = useSelector((state) => state.characters);
   const episodes = useSelector((state) => state.episodes);
@@ -93,11 +93,10 @@ export const Navigation = () => {
 
   // Paginate for Characters
   const paginateForCharacters = (pageNumber) => {
-    setCurrentPage(pageNumber);
     setSelectedStatus('all');
     setSelectedSpecies('all');
     setSelectedGender('all');
-    getCharacter(currentPage)
+    getCharacter(pageNumber)
       .then((data) => {
         dispatch(showCharacters(data));
       });
@@ -105,16 +104,14 @@ export const Navigation = () => {
 
   // Paginate for Episode
   const paginateForEpisodes = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    getEpisode(currentPage)
+    getEpisode(pageNumber)
       .then((data) => {
         dispatch(showEpisodes(data));
       });
   };
 
   const paginateForLocations = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    getLocation(currentPage)
+    getLocation(pageNumber)
       .then((data) => {
         dispatch(showLocations(data));
       });
